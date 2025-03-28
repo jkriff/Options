@@ -1,0 +1,1406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/InfoSoftWebService/Service1" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/InfoSoftWebService/Service1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/InfoSoftWebService/Service1">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloDB">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloDBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloDBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MyPublicIPAddress">
+        <s:complexType />
+      </s:element>
+      <s:element name="MyPublicIPAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MyPublicIPAddressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentDateAndTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentDateAndTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentDateAndTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="uploadOSInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="reg" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="os" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="uploadOSInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uploadOSInformationResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="uploadDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="extraInstructions" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="uploadDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uploadDataSetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="downloadDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Instructions" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="downloadDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="downloadDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="downloadTableDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WhereClause" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TableHasClientID" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="downloadTableDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="downloadTableDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="downloadSqlDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SQL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="downloadSqlDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="downloadSqlDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInsertDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WhereClause" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TableHasClientID" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInsertDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteInsertDataSetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWithSQLMultiple">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SQL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Delimiter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWithSQLMultipleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWithSQLMultipleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWithSQL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SQL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWithSQLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWithSQLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="logBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="register" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeStamp" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="logBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="logBatchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="custID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="middleI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateCustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateCustomer2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="custID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="middleI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="areaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extension" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateCustomer2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateCustomer2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="custID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteCustomerResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateBiometrics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="employee" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fingerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fingerPrint" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateBiometricsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateBiometricsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteBiometrics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="employee" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteBiometricsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteBiometricsResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateEmployeePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="empID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateEmployeePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateEmployeePasswordResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteTranslation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keyNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteTranslationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteTranslationResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceAuthHeader" type="tns:ServiceAuthHeader" />
+      <s:complexType name="ServiceAuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="insertTranslation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keyNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertTranslationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertTranslationResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateInfoOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateInfoOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateInfoOrderResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteInfoOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="store" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteInfoOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteInfoOrderResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="s2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="genX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s1" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="genXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="genXResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CleanHierarchyPricePoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Store" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CleanHierarchyPricePointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CleanHierarchyPricePointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInfoPOSv">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Store" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInfoPOSvResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateInfoPOSvResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update911v">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Store" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update911vResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Update911vResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSP_Select">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pv_sStoredProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pv_dsParams">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecSP_SelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecSP_SelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamDataSet">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetParamDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetParamDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloDBSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloDB" />
+  </wsdl:message>
+  <wsdl:message name="HelloDBSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="MyPublicIPAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:MyPublicIPAddress" />
+  </wsdl:message>
+  <wsdl:message name="MyPublicIPAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:MyPublicIPAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentDateAndTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentDateAndTime" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentDateAndTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentDateAndTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadOSInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:uploadOSInformation" />
+  </wsdl:message>
+  <wsdl:message name="uploadOSInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:uploadOSInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:uploadDataSet" />
+  </wsdl:message>
+  <wsdl:message name="uploadDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:uploadDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:downloadDataSet" />
+  </wsdl:message>
+  <wsdl:message name="downloadDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:downloadDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadTableDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:downloadTableDataSet" />
+  </wsdl:message>
+  <wsdl:message name="downloadTableDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:downloadTableDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadSqlDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:downloadSqlDataSet" />
+  </wsdl:message>
+  <wsdl:message name="downloadSqlDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:downloadSqlDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInsertDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteInsertDataSet" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInsertDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteInsertDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWithSQLMultipleSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWithSQLMultiple" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWithSQLMultipleSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWithSQLMultipleResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWithSQLSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWithSQL" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWithSQLSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWithSQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="logBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:logBatch" />
+  </wsdl:message>
+  <wsdl:message name="logBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:logBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:updateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="updateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:updateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateCustomer2SoapIn">
+    <wsdl:part name="parameters" element="tns:updateCustomer2" />
+  </wsdl:message>
+  <wsdl:message name="updateCustomer2SoapOut">
+    <wsdl:part name="parameters" element="tns:updateCustomer2Response" />
+  </wsdl:message>
+  <wsdl:message name="deleteCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="deleteCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateBiometricsSoapIn">
+    <wsdl:part name="parameters" element="tns:updateBiometrics" />
+  </wsdl:message>
+  <wsdl:message name="updateBiometricsSoapOut">
+    <wsdl:part name="parameters" element="tns:updateBiometricsResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteBiometricsSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteBiometrics" />
+  </wsdl:message>
+  <wsdl:message name="deleteBiometricsSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteBiometricsResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateEmployeePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:updateEmployeePassword" />
+  </wsdl:message>
+  <wsdl:message name="updateEmployeePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:updateEmployeePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteTranslationSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteTranslation" />
+  </wsdl:message>
+  <wsdl:message name="deleteTranslationSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteTranslationResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteTranslationServiceAuthHeader">
+    <wsdl:part name="ServiceAuthHeader" element="tns:ServiceAuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="insertTranslationSoapIn">
+    <wsdl:part name="parameters" element="tns:insertTranslation" />
+  </wsdl:message>
+  <wsdl:message name="insertTranslationSoapOut">
+    <wsdl:part name="parameters" element="tns:insertTranslationResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertTranslationServiceAuthHeader">
+    <wsdl:part name="ServiceAuthHeader" element="tns:ServiceAuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="updateInfoOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:updateInfoOrder" />
+  </wsdl:message>
+  <wsdl:message name="updateInfoOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:updateInfoOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateInfoOrderServiceAuthHeader">
+    <wsdl:part name="ServiceAuthHeader" element="tns:ServiceAuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="deleteInfoOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteInfoOrder" />
+  </wsdl:message>
+  <wsdl:message name="deleteInfoOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteInfoOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteInfoOrderServiceAuthHeader">
+    <wsdl:part name="ServiceAuthHeader" element="tns:ServiceAuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getUseSoapIn">
+    <wsdl:part name="parameters" element="tns:getUse" />
+  </wsdl:message>
+  <wsdl:message name="getUseSoapOut">
+    <wsdl:part name="parameters" element="tns:getUseResponse" />
+  </wsdl:message>
+  <wsdl:message name="genXSoapIn">
+    <wsdl:part name="parameters" element="tns:genX" />
+  </wsdl:message>
+  <wsdl:message name="genXSoapOut">
+    <wsdl:part name="parameters" element="tns:genXResponse" />
+  </wsdl:message>
+  <wsdl:message name="CleanHierarchyPricePointSoapIn">
+    <wsdl:part name="parameters" element="tns:CleanHierarchyPricePoint" />
+  </wsdl:message>
+  <wsdl:message name="CleanHierarchyPricePointSoapOut">
+    <wsdl:part name="parameters" element="tns:CleanHierarchyPricePointResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInfoPOSvSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateInfoPOSv" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInfoPOSvSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateInfoPOSvResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update911vSoapIn">
+    <wsdl:part name="parameters" element="tns:Update911v" />
+  </wsdl:message>
+  <wsdl:message name="Update911vSoapOut">
+    <wsdl:part name="parameters" element="tns:Update911vResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecSP_SelectSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecSP_Select" />
+  </wsdl:message>
+  <wsdl:message name="ExecSP_SelectSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecSP_SelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParamDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParamDataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetParamDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParamDataSetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExchangeSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloDB">
+      <wsdl:input message="tns:HelloDBSoapIn" />
+      <wsdl:output message="tns:HelloDBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MyPublicIPAddress">
+      <wsdl:input message="tns:MyPublicIPAddressSoapIn" />
+      <wsdl:output message="tns:MyPublicIPAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentDateAndTime">
+      <wsdl:input message="tns:GetCurrentDateAndTimeSoapIn" />
+      <wsdl:output message="tns:GetCurrentDateAndTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadOSInformation">
+      <wsdl:input message="tns:uploadOSInformationSoapIn" />
+      <wsdl:output message="tns:uploadOSInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadDataSet">
+      <wsdl:input message="tns:uploadDataSetSoapIn" />
+      <wsdl:output message="tns:uploadDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadDataSet">
+      <wsdl:input message="tns:downloadDataSetSoapIn" />
+      <wsdl:output message="tns:downloadDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadTableDataSet">
+      <wsdl:input message="tns:downloadTableDataSetSoapIn" />
+      <wsdl:output message="tns:downloadTableDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadSqlDataSet">
+      <wsdl:input message="tns:downloadSqlDataSetSoapIn" />
+      <wsdl:output message="tns:downloadSqlDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInsertDataSet">
+      <wsdl:input message="tns:DeleteInsertDataSetSoapIn" />
+      <wsdl:output message="tns:DeleteInsertDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWithSQLMultiple">
+      <wsdl:input message="tns:UpdateWithSQLMultipleSoapIn" />
+      <wsdl:output message="tns:UpdateWithSQLMultipleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWithSQL">
+      <wsdl:input message="tns:UpdateWithSQLSoapIn" />
+      <wsdl:output message="tns:UpdateWithSQLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="logBatch">
+      <wsdl:input message="tns:logBatchSoapIn" />
+      <wsdl:output message="tns:logBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCustomer">
+      <wsdl:input message="tns:updateCustomerSoapIn" />
+      <wsdl:output message="tns:updateCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCustomer2">
+      <wsdl:input message="tns:updateCustomer2SoapIn" />
+      <wsdl:output message="tns:updateCustomer2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCustomer">
+      <wsdl:input message="tns:deleteCustomerSoapIn" />
+      <wsdl:output message="tns:deleteCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateBiometrics">
+      <wsdl:input message="tns:updateBiometricsSoapIn" />
+      <wsdl:output message="tns:updateBiometricsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteBiometrics">
+      <wsdl:input message="tns:deleteBiometricsSoapIn" />
+      <wsdl:output message="tns:deleteBiometricsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateEmployeePassword">
+      <wsdl:input message="tns:updateEmployeePasswordSoapIn" />
+      <wsdl:output message="tns:updateEmployeePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteTranslation">
+      <wsdl:input message="tns:deleteTranslationSoapIn" />
+      <wsdl:output message="tns:deleteTranslationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertTranslation">
+      <wsdl:input message="tns:insertTranslationSoapIn" />
+      <wsdl:output message="tns:insertTranslationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateInfoOrder">
+      <wsdl:input message="tns:updateInfoOrderSoapIn" />
+      <wsdl:output message="tns:updateInfoOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteInfoOrder">
+      <wsdl:input message="tns:deleteInfoOrderSoapIn" />
+      <wsdl:output message="tns:deleteInfoOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUse">
+      <wsdl:input message="tns:getUseSoapIn" />
+      <wsdl:output message="tns:getUseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="genX">
+      <wsdl:input message="tns:genXSoapIn" />
+      <wsdl:output message="tns:genXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CleanHierarchyPricePoint">
+      <wsdl:input message="tns:CleanHierarchyPricePointSoapIn" />
+      <wsdl:output message="tns:CleanHierarchyPricePointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfoPOSv">
+      <wsdl:input message="tns:UpdateInfoPOSvSoapIn" />
+      <wsdl:output message="tns:UpdateInfoPOSvSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update911v">
+      <wsdl:input message="tns:Update911vSoapIn" />
+      <wsdl:output message="tns:Update911vSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecSP_Select">
+      <wsdl:input message="tns:ExecSP_SelectSoapIn" />
+      <wsdl:output message="tns:ExecSP_SelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamDataSet">
+      <wsdl:input message="tns:GetParamDataSetSoapIn" />
+      <wsdl:output message="tns:GetParamDataSetSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExchangeSoap" type="tns:ExchangeSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloDB">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/HelloDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MyPublicIPAddress">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/MyPublicIPAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentDateAndTime">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/GetCurrentDateAndTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadOSInformation">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/uploadOSInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadDataSet">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/uploadDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadDataSet">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/downloadDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadTableDataSet">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/downloadTableDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadSqlDataSet">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/downloadSqlDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInsertDataSet">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/DeleteInsertDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWithSQLMultiple">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/UpdateWithSQLMultiple" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWithSQL">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/UpdateWithSQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logBatch">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/logBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCustomer">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/updateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCustomer2">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/updateCustomer2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCustomer">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/deleteCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBiometrics">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/updateBiometrics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBiometrics">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/deleteBiometrics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEmployeePassword">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/updateEmployeePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTranslation">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/deleteTranslation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:deleteTranslationServiceAuthHeader" part="ServiceAuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertTranslation">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/insertTranslation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:insertTranslationServiceAuthHeader" part="ServiceAuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateInfoOrder">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/updateInfoOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:updateInfoOrderServiceAuthHeader" part="ServiceAuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteInfoOrder">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/deleteInfoOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:deleteInfoOrderServiceAuthHeader" part="ServiceAuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUse">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/getUse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="genX">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/genX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanHierarchyPricePoint">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/CleanHierarchyPricePoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfoPOSv">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/UpdateInfoPOSv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update911v">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/Update911v" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSP_Select">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/ExecSP_Select" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamDataSet">
+      <soap:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/GetParamDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExchangeSoap12" type="tns:ExchangeSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloDB">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/HelloDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MyPublicIPAddress">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/MyPublicIPAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentDateAndTime">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/GetCurrentDateAndTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadOSInformation">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/uploadOSInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadDataSet">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/uploadDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadDataSet">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/downloadDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadTableDataSet">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/downloadTableDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadSqlDataSet">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/downloadSqlDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInsertDataSet">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/DeleteInsertDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWithSQLMultiple">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/UpdateWithSQLMultiple" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWithSQL">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/UpdateWithSQL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logBatch">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/logBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCustomer">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/updateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCustomer2">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/updateCustomer2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCustomer">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/deleteCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBiometrics">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/updateBiometrics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBiometrics">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/deleteBiometrics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEmployeePassword">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/updateEmployeePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTranslation">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/deleteTranslation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:deleteTranslationServiceAuthHeader" part="ServiceAuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertTranslation">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/insertTranslation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:insertTranslationServiceAuthHeader" part="ServiceAuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateInfoOrder">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/updateInfoOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:updateInfoOrderServiceAuthHeader" part="ServiceAuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteInfoOrder">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/deleteInfoOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:deleteInfoOrderServiceAuthHeader" part="ServiceAuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUse">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/getUse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="genX">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/genX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CleanHierarchyPricePoint">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/CleanHierarchyPricePoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfoPOSv">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/UpdateInfoPOSv" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update911v">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/Update911v" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSP_Select">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/ExecSP_Select" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamDataSet">
+      <soap12:operation soapAction="http://tempuri.org/InfoSoftWebService/Service1/GetParamDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Exchange">
+    <wsdl:port name="ExchangeSoap" binding="tns:ExchangeSoap">
+      <soap:address location="http://localhost/webservice/exchange.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExchangeSoap12" binding="tns:ExchangeSoap12">
+      <soap12:address location="http://localhost/webservice/exchange.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

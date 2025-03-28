@@ -1,0 +1,1 @@
+<%@ Application Inherits="Register.Global" Language="VB" %>
